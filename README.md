@@ -1,6 +1,6 @@
 # GGRest
 
-[![CI Status](http://img.shields.io/travis/Adri/GGRest.svg?style=flat)](https://travis-ci.org/greengrowapps/GGRest)
+[![CI Status](http://img.shields.io/travis/greengrowapps/GGRest.svg?style=flat)](https://travis-ci.org/greengrowapps/GGRest)
 [![Version](https://img.shields.io/cocoapods/v/GGRest.svg?style=flat)](http://cocoapods.org/pods/GGRest)
 [![License](https://img.shields.io/cocoapods/l/GGRest.svg?style=flat)](http://cocoapods.org/pods/GGRest)
 [![Platform](https://img.shields.io/cocoapods/p/GGRest.svg?style=flat)](http://cocoapods.org/pods/GGRest)
