@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "GGRest"
-  s.version          = "0.1.0"
+  s.version          = "0.1.10"
   s.summary          = "A small iOs library to make easy connect to a REST webservice"
 
 # This description is used to generate tags and improve search results.
@@ -20,7 +20,7 @@ Pod::Spec.new do |s|
 
   s.homepage         = "https://github.com/greengrowapps/GGRest"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
-  s.license          = 'MIT'
+  s.license          =  'Apache License, Version 2.0'
   s.author           = { "Adri" => "adriansanchis87@gmail.com" }
   s.source           = { :git => "https://github.com/greengrowapps/GGRest.git", :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/greengrowapps'
