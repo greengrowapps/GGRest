@@ -1,0 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'GGRest_Example', :exclusive => true do
+  pod "GGRest", :path => "../"
+end
+
+target 'GGRest_Tests', :exclusive => true do
+  pod "GGRest", :path => "../"
+
+  pod 'Specta'
+  pod 'Expecta'
+end

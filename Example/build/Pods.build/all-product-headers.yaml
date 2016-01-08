@@ -1,0 +1,103 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/piro/Documents/Development/pruebas/GGRest/Example/build/Debug-iphonesimulator/GGRest.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "GGRest-Swift.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Example/build/Debug-iphonesimulator/GGRest.framework/Headers/GGRest-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "GGRest-umbrella.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Example/Pods/Target Support Files/GGRest/GGRest-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "GGSecureWebService.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Pod/Classes/GGSecureWebService.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSDictionary+STJson.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Pod/Classes/JsonHelper/NSDictionary+STJson.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSMutableDictionary+STJson.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Pod/Classes/JsonHelper/NSMutableDictionary+STJson.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSObject+Json.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Pod/Classes/JsonHelper/NSObject+Json.h"
+        },
+        {
+          'type': 'file',
+          'name': "STErrorHelper.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Pod/Classes/SecutiryImplementation/STErrorHelper.h"
+        },
+        {
+          'type': 'file',
+          'name': "STHeaders.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Pod/Classes/STHeaders.h"
+        },
+        {
+          'type': 'file',
+          'name': "STJsonHelper.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Pod/Classes/JsonHelper/STJsonHelper.h"
+        },
+        {
+          'type': 'file',
+          'name': "STJsonResponse.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Pod/Classes/STJsonResponse.h"
+        },
+        {
+          'type': 'file',
+          'name': "STJsoneableArray.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Pod/Classes/JsonHelper/STJsoneableArray.h"
+        },
+        {
+          'type': 'file',
+          'name': "STJsoneableObject.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Pod/Classes/JsonHelper/STJsoneableObject.h"
+        },
+        {
+          'type': 'file',
+          'name': "STJsoneableString.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Pod/Classes/JsonHelper/STJsoneableString.h"
+        },
+        {
+          'type': 'file',
+          'name': "STNoSecurity.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Pod/Classes/SecutiryImplementation/Implementations/STNoSecurity.h"
+        },
+        {
+          'type': 'file',
+          'name': "STReachability.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Pod/Classes/Reachability/STReachability.h"
+        },
+        {
+          'type': 'file',
+          'name': "STSecurityImplementation.h",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Pod/Classes/SecutiryImplementation/STSecurityImplementation.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/piro/Documents/Development/pruebas/GGRest/Example/build/Debug-iphonesimulator/GGRest.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/piro/Documents/Development/pruebas/GGRest/Example/build/Pods.build/Debug-iphonesimulator/GGRest.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

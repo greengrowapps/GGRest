@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="whP-gf-Uak">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="wQg-tq-qST">
+            <objects>
+                <viewController id="whP-gf-Uak" customClass="GGViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uEw-UM-LJ8"/>
+                        <viewControllerLayoutGuide type="bottom" id="Mvr-aV-6Um"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Url:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ru-c7-Ooi">
+                                <rect key="frame" x="25" y="28" width="27" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="http://www.google.es" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OlC-IS-gKG">
+                                <rect key="frame" x="0.0" y="57" width="600" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69B-97-yd3">
+                                <rect key="frame" x="277" y="92" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="bExecuteClick:" destination="whP-gf-Uak" eventType="touchUpInside" id="nF7-qb-MHK"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rpa-Jj-3wC">
+                                <rect key="frame" x="0.0" y="122" width="600" height="478"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="69B-97-yd3" firstAttribute="top" secondItem="OlC-IS-gKG" secondAttribute="bottom" constant="5" id="58m-in-eyk"/>
+                            <constraint firstItem="Mvr-aV-6Um" firstAttribute="top" secondItem="rpa-Jj-3wC" secondAttribute="bottom" id="7pH-xe-Vbj"/>
+                            <constraint firstItem="rpa-Jj-3wC" firstAttribute="width" secondItem="OlC-IS-gKG" secondAttribute="width" id="JAP-hw-fmM"/>
+                            <constraint firstItem="8Ru-c7-Ooi" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leadingMargin" constant="5" id="Nsi-8g-FLL"/>
+                            <constraint firstItem="OlC-IS-gKG" firstAttribute="width" secondItem="TpU-gO-2f1" secondAttribute="width" id="Qhq-hQ-LEz"/>
+                            <constraint firstItem="8Ru-c7-Ooi" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="8" id="Zhc-9x-ODe"/>
+                            <constraint firstItem="OlC-IS-gKG" firstAttribute="top" secondItem="8Ru-c7-Ooi" secondAttribute="bottom" constant="8" id="lJF-Eb-VOd"/>
+                            <constraint firstItem="69B-97-yd3" firstAttribute="centerX" secondItem="OlC-IS-gKG" secondAttribute="centerX" id="tqm-lY-0mK"/>
+                            <constraint firstItem="OlC-IS-gKG" firstAttribute="centerX" secondItem="TpU-gO-2f1" secondAttribute="centerX" id="tv6-Fk-Le5"/>
+                            <constraint firstItem="rpa-Jj-3wC" firstAttribute="centerX" secondItem="OlC-IS-gKG" secondAttribute="centerX" id="vKZ-OG-RlY"/>
+                            <constraint firstItem="rpa-Jj-3wC" firstAttribute="top" secondItem="69B-97-yd3" secondAttribute="bottom" id="zkS-b8-aw6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="editUrl" destination="OlC-IS-gKG" id="jyJ-sB-TDf"/>
+                        <outlet property="tvResponse" destination="rpa-Jj-3wC" id="H1e-JJ-KTl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="305" y="433"/>
+        </scene>
+    </scenes>
+</document>

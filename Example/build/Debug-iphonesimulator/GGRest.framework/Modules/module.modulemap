@@ -1,0 +1,6 @@
+framework module GGRest {
+  umbrella header "GGRest-umbrella.h"
+
+  export *
+  module * { export * }
+}

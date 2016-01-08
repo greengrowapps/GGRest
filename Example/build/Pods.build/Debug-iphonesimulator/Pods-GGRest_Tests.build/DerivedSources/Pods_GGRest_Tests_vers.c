@@ -1,0 +1,1 @@
+ const unsigned char Pods_GGRest_TestsVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:Pods_GGRest_Tests  PROJECT:Pods-1" "\n"; const double Pods_GGRest_TestsVersionNumber __attribute__ ((used)) = (double)1.;
