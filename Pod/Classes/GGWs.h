@@ -16,7 +16,7 @@
 
 typedef void (^ObjectResponseBlock)(id<GGJsoneableObject> o);
 typedef void (^ObjectResponseBlockFull)(id<GGJsoneableObject> o,GGHttpResponse *fullResponse);
-typedef void (^ArrayResponseBlock)(NSArray<id<GGJsoneableObject>> *array, id<GGJsoneableObject> o);
+typedef void (^ArrayResponseBlock)(NSArray *array, id<GGJsoneableObject> o);
 
 typedef void (^ErrorBlock)(GGHttpResponse* fullResponse ,NSError *error);
 
