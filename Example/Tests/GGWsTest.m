@@ -11,31 +11,133 @@
 #define EXP_SHORTHAND
 #import "Expecta.h"
 #include <GGRest/GGWs.h>
-#include <GGRest/GGSecureWebService.h>
 #include <GGRest/GGJsonHelper.h>
+#include <GGRest/GGMockedClient.h>
+#include "GGTestObject.h"
+#include <GGRest/GGHttpResponse.h>
 
 
 
-SpecBegin(Cell)
-describe(@"Cell", ^{
-    it(@"is dead on creation", ^{
+
+#define okUrl @"Http://ok.com"
+#define arrayUrl @"Http://array.com"
+#define url501 @"Http://Url501.com"
+
+
+SpecBegin(GGWS)
+
+GGMockedClient *client=[[GGMockedClient alloc] initWithDelayTime:0];
+[client addResponeCode:501 andContent:@"\"string\"" forUrl:url501];
+[client addResponeCode:200 andContent:@"\"string\"" forUrl:okUrl];
+[client addResponeCode:200 andContent:@"[{},{},{}]" forUrl:arrayUrl];
+
+describe(@"Response codes", ^{
+    it(@"ok response detected with onOk", ^{
         waitUntil(^(DoneCallback done) {
-            GGWs *ws=[[GGWs alloc] init];
-            ws.url=@"Https://google.es";
+            GGWs *ws=[[GGWs alloc] initWithClient:client];
+            ws.url=okUrl;
             ws.method=GET;
-            ws.onOk=^(NSString *s){
-                NSLog(@"String is %@",s);
-                 done();
-            };
-            ws.onError=^(int code , NSString *content , NSError *error){
-                expect(1).to.equal(2);
+                ws.onOk=^(NSString *s){
+                    expect(s).to.equal(@"string");
                 done();
             };
             [ws execute];
         });
-        
-        
+    });
+    
+    it(@"ok response detected with on 200", ^{
+        waitUntil(^(DoneCallback done) {
+            GGWs *ws=[[GGWs alloc] initWithClient:client];
+            ws.url=okUrl;
+            ws.method=GET;
+            [ws onResponse:200 objectCallBack:^(NSString *s){
+                expect(s).to.equal(@"string");
+                done();
+            }];
+            [ws execute];
+        });
+    });
+    
+    it(@"error response detected", ^{
+        waitUntil(^(DoneCallback done) {
+            GGWs *ws=[[GGWs alloc] initWithClient:client];
+            ws.url=@"incorrect url";
+            ws.method=GET;
+            ws.onError=^(GGHttpResponse *fullResponse ,NSError *error){
+                done();
+            };
+            [ws execute];
+        });
+    });
+    
+    it(@"501 detected", ^{
+        waitUntil(^(DoneCallback done) {
+            GGWs *ws=[[GGWs alloc] initWithClient:client];
+            ws.url=url501;
+            ws.method=GET;
+            [ws onResponse:501 objectCallBack:^(NSString *s){
+                expect(s).to.equal(@"string");
+                done();
+            }];
+            [ws execute];
+        });
+    });
+    
+    it(@"ok response detected with onOkArray", ^{
+        waitUntil(^(DoneCallback done) {
+            GGWs *ws=[[GGWs alloc] initWithClient:client];
+            ws.url=arrayUrl;
+            ws.method=GET;
+            ws.onOkArray=^(NSArray *array,GGTestObject *nill){
+                expect(array.count).to.equal(3);
+                done();
+            };
+            [ws execute];
+        });
+    });
+    
+    it(@"ok response detected with on 200 array", ^{
+        waitUntil(^(DoneCallback done) {
+            GGWs *ws=[[GGWs alloc] initWithClient:client];
+            ws.url=arrayUrl;
+            ws.method=GET;
+            [ws onResponse:200 arrayCallBack:^(NSArray *array,GGTestObject *nill){
+                expect(array.count).to.equal(3);
+                done();
+            }];
+            [ws execute];
+        });
+    });
+    
+    it(@"ok full response ", ^{
+        waitUntil(^(DoneCallback done) {
+            GGWs *ws=[[GGWs alloc] initWithClient:client];
+            ws.url=okUrl;
+            ws.method=GET;
+            [ws onResponse:200 objectCallBack:^(GGHttpResponse *fullResponse){
+                expect(fullResponse.code).to.equal(200);
+                expect([fullResponse getContentString]).to.equal(@"\"string\"");
+                done();
+            }];
+            [ws execute];
+        });
+    });
+});
 
+describe(@"serializations", ^(){
+    it(@"Serialize array", ^(){
+        waitUntil(^(DoneCallback done) {
+            GGWs *ws=[[GGWs alloc] initWithClient:client];
+            ws.url=arrayUrl;
+            ws.method=GET;
+            [ws onResponse:200 arrayCallBack:^(NSArray *array,GGTestObject *nill){
+                for(GGTestObject *obj in array){
+                    NSLog(@"object: %@",obj);
+                }
+                done();
+            }];
+            [ws execute];
+        });
     });
 });
 SpecEnd

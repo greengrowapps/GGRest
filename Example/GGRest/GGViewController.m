@@ -36,13 +36,17 @@
     ws.url=self.editUrl.text;
     ws.method=POST;
     
-    ws.onOk=^(NSString *s){
-        [self writeLine:s];
+//    ws.onOk=^(NSString *s){
+//        [self writeLine:s];
+//    };
+    
+    ws.onOk=^(NSString *object){
+        NSLog(@"object is: %@",object);
     };
     
-    ws.onError=^(int code , NSString *content,NSError *error){
+    ws.onError=^(GGHttpResponse *fullResponse,NSError *error){
         [self.tvResponse setTextColor:[UIColor redColor]];
-        [self writeLine:content];
+        [self writeLine:[fullResponse getContentString] ];
     };
     
     [ws execute];

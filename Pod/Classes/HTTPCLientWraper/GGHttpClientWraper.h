@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GGHeaders.h"
+#import "GGHttpResponse.h"
 
 
 
@@ -24,8 +25,8 @@ typedef NS_ENUM(NSInteger, GGRequestType)
 
 @required
 
--(void)connectionFinish:(int) responseCode data:(NSData*) responseData headers:(NSDictionary*) headers;
--(void) connectionError:(int) responseCode data:(NSData*) responseData headers:(NSDictionary*) headers error:(NSError*) error;
+-(void)connectionFinish:(GGHttpResponse*) fullResponse;
+-(void) connectionError:(GGHttpResponse*) fullResponse error:(NSError*) error;
 
 @end
 

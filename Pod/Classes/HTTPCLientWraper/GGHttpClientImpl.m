@@ -8,12 +8,13 @@
 
 #import "GGHttpClientImpl.h"
 #import "GGJsonHelper.h"
+#import "GGHttpResponse.h"
 
 @interface GGHttpClientImpl() <NSURLConnectionDelegate>{
     NSMutableData *_responseData;
     NSURLConnection *conn;
     int responseCode;
-    NSDictionary *responseHeaders;
+    GGHeaders *responseHeaders;
     id<GGHttpClientWraperDelegate> delegate;
 }
 
@@ -76,9 +77,9 @@
 
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
+    NSHTTPURLResponse* httpResponse = (NSURLConnection*)response;
     responseCode = [httpResponse statusCode];
-    responseHeaders=httpResponse.allHeaderFields;
+    responseHeaders=[[GGHeaders alloc] initWitNSHTTPURLResponseHeaders:httpResponse.allHeaderFields];
     _responseData = [[NSMutableData alloc] init];
 }
 
@@ -92,15 +93,19 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    [delegate connectionFinish:responseCode
-                          data:_responseData
-                       headers:responseHeaders];
+    GGHttpResponse *fullResponse =
+    [[GGHttpResponse alloc] initWithCode:responseCode
+                                    data:_responseData
+                                 headers:responseHeaders];
+    [delegate connectionFinish:fullResponse];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    [delegate connectionError:responseCode
-                         data:_responseData
-                      headers:responseHeaders
+    GGHttpResponse *fullResponse =
+    [[GGHttpResponse alloc] initWithCode:responseCode
+                                    data:_responseData
+                                 headers:responseHeaders];
+    [delegate connectionError:fullResponse
                         error:error];
 }
 

@@ -12,11 +12,13 @@
 #import "CTObjectiveCRuntimeAdditions/CTBlockDescription.h"
 #import "GGjsonHelper.h"
 #import "GGHttpClientImpl.h"
+#import "GGHttpResponse.h"
 
 
 @interface GGWs() <GGHttpClientWraperDelegate>{
     NSOperationQueue* callbackQueue;
     id<GGHttpClientWraper> httpclient;
+    NSMutableDictionary *customResponses;
 }
 
 @end
@@ -27,22 +29,36 @@
     self=[super init];
     
     if(self){
-        self.bodyData=nil;
-        self.url=nil;
-        self.method=-1;
-        self.serializationViews=nil;
+        [self config];
         httpclient=[[GGHttpClientImpl alloc] init];
     }
     
     return self;
 }
 
+-(instancetype)initWithClient:(id<GGHttpClientWraper>) client{
+    self=[super init];
+    
+    if(self){
+        [self config];
+        httpclient=client;
+    }
+    
+    return self;
+}
+
+-(void) config{
+    self.bodyData=nil;
+    self.url=nil;
+    self.method=-1;
+    self.serializationViews=nil;
+    customResponses=[[NSMutableDictionary alloc] init];
+}
+
 
 -(void) checkIntegrity{
     
 }
-
-
 
 -(void) execute{
     
@@ -68,72 +84,115 @@
     return nil;
 }
 
--(NSString*) dataToString:(NSData*) data{
+-(id<GGJsoneableObject>) objectForBlock:(id) b withResponse:(GGHttpResponse*) response{
     
-    if(!data || data.length == 0){
+    NSString *resposeString=[response getContentString];
+
+    
+    id<GGJsoneableObject> o;
+    NSArray *blokParams=[self blockParamsClassesForBlock:b];
+
+    
+    if(blokParams.count<=0){
         return nil;
     }
     
-   NSString *ret=[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    Class expectedClass =[blokParams objectAtIndex:0];
+
     
-    if(!ret){
-        ret=[[NSString alloc] initWithData:data encoding:NSWindowsCP1252StringEncoding];
+    if([expectedClass isSubclassOfClass:[NSArray class]]){
+        if(blokParams.count < 1){
+            return nil;
+        }
+        Class expectedClass2 = [blokParams objectAtIndex:1];
+        o=[NSMutableArray fromJsonString:resposeString ofClass:expectedClass2];
+    }else if([expectedClass isSubclassOfClass:[GGHttpResponse class]]){
+        o=response;
+    }else{
+        o=[expectedClass fromJsonString:resposeString];
+    
     }
-    
-    return ret;
+    return o;
 }
 
-#pragma mark httpClientWraperDelegate
-
--(void)connectionFinish:(int) responseCode
-                   data:(NSData*) responseData
-                headers:(NSDictionary*) headers{
-    
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    id<GGJsoneableObject> o;
-    
-    NSMethodSignature *signature = [[[CTBlockDescription alloc] initWithBlock:self.onOk] blockSignature];
+-(NSArray*) blockParamsClassesForBlock:(id) block{
+    NSMethodSignature *signature = [[[CTBlockDescription alloc] initWithBlock:block] blockSignature];
     NSLog(@"signature %@", [signature debugDescription]);
     
     
-    const char* type=[signature getArgumentTypeAtIndex:1];
-    NSString *typeStr=[NSString stringWithCString:type encoding:NSUTF8StringEncoding];
-    typeStr=[typeStr substringWithRange:NSMakeRange(2, typeStr.length-3)];
-    Class expectedClass = NSClassFromString (typeStr);
+    NSMutableArray *ret=[[NSMutableArray alloc] init];
     
-    NSString *resposeString=[self dataToString:responseData];
-    
-    if(resposeString){
-        o=[expectedClass fromJsonString:resposeString];
+    for(int i=1 ; i< [signature numberOfArguments];i++){
+        const char* type=[signature getArgumentTypeAtIndex:i];
+        NSString *typeStr=[NSString stringWithCString:type encoding:NSUTF8StringEncoding];
+        typeStr=[typeStr substringWithRange:NSMakeRange(2, typeStr.length-3)];
+        Class expectedClass = NSClassFromString (typeStr);
+        [ret addObject:expectedClass];
     }
+    return ret;
+    
+}
 
-    if(responseCode==200){
+
+#pragma mark httpClientWraperDelegate
+
+-(void)connectionFinish:(GGHttpResponse*) fullResponse{
+    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    
+    id b = [customResponses objectForKey:[NSNumber numberWithInt:fullResponse.code]];
+    
+    if(b){
+        id<GGJsoneableObject> o = [self objectForBlock:b withResponse:fullResponse];
         [callbackQueue addOperationWithBlock:^(){
-            self.onOk(o);
+            if([o isKindOfClass:[NSArray class]]){
+                ((ArrayResponseBlock) b)((NSArray*)o,nil);
+            }else{
+                ((ObjectResponseBlock)b)(o);
+            }
         }];
     }else{
         if(self.onError){
             [callbackQueue addOperationWithBlock:^(){
-                self.onError(responseCode,resposeString,nil);
+                self.onError(fullResponse,nil);
             }];
         }
     }
-}
+    
+    
+   }
 
--(void) connectionError:(int) responseCode
-                   data:(NSData*) responseData
-                headers:(NSDictionary*) headers
+-(void) connectionError:(GGHttpResponse*) fullResponse
                   error:(NSError*) error{
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 
     if(self.onError){
-        NSString *content=[self dataToString:responseData];
 
         [callbackQueue addOperationWithBlock:^(){
-            self.onError(responseCode,content,error);
+            self.onError(fullResponse,error);
         }];
     }
 }
+#pragma mark - public methods
+
+-(void)setOnOk:(ObjectResponseBlock)onOk{
+    _onOk=onOk;
+    [self onResponse:200 objectCallBack:onOk];
+}
+
+-(void)setOnOkArray:(ArrayResponseBlock)onOkArray{
+    _onOkArray=onOkArray;
+    [self onResponse:200 arrayCallBack:onOkArray];
+}
+
+-(void) onResponse:(int) code objectCallBack:(ObjectResponseBlock) b{
+    [customResponses setObject:b forKey:[NSNumber numberWithInt:code]];
+}
+
+-(void) onResponse:(int) code arrayCallBack:(ArrayResponseBlock) b{
+    [customResponses setObject:b forKey:[NSNumber numberWithInt:code]];
+}
+
 
 
 

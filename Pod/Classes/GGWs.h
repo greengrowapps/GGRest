@@ -11,11 +11,14 @@
 #import "GGHttpClientWraper.h"
 
 
-
+@class GGHttpResponse;
 @interface GGWs : NSObject
 
 typedef void (^ObjectResponseBlock)(id<GGJsoneableObject> o);
-typedef void (^ErrorBlock)(int code , NSString *content ,NSError *error);
+typedef void (^ObjectResponseBlockFull)(id<GGJsoneableObject> o,GGHttpResponse *fullResponse);
+typedef void (^ArrayResponseBlock)(NSArray<id<GGJsoneableObject>> *array, id<GGJsoneableObject> o);
+
+typedef void (^ErrorBlock)(GGHttpResponse* fullResponse ,NSError *error);
 
 
 @property(nonatomic) GGRequestType method;
@@ -23,9 +26,17 @@ typedef void (^ErrorBlock)(int code , NSString *content ,NSError *error);
 @property(nonatomic) id<GGJsoneableObject> bodyData;
 @property(nonatomic) NSArray *serializationViews;
 
-@property(readwrite, copy) ObjectResponseBlock onOk;
-@property(readwrite, copy) ErrorBlock onError;
 
+
+@property(nonatomic, copy) ErrorBlock onError;
+
+-(instancetype)initWithClient:(id<GGHttpClientWraper>) client;
+
+@property(nonatomic, copy) ObjectResponseBlock onOk;
+@property(nonatomic, copy) ArrayResponseBlock onOkArray;
+
+-(void) onResponse:(int) code objectCallBack:(ObjectResponseBlock) b;
+-(void) onResponse:(int) code arrayCallBack:(ArrayResponseBlock) b;
 
 -(void) execute;
 

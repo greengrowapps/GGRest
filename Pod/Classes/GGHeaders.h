@@ -4,6 +4,7 @@
 
 @interface GGHeaders : NSObject
 
+-(id) initWitNSHTTPURLResponseHeaders:(NSDictionary*) headers;
 - (id)initWithInitialKey:(NSString *) key andValue:(NSString*) value;
 -(int) count;
 -(NSString*) getKeyAtIndex:(int) index;

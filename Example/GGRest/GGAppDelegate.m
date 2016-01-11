@@ -7,7 +7,6 @@
 //
 
 #import "GGAppDelegate.h"
-#import <GGRest/GGSecureWebService.h>
 
 @implementation GGAppDelegate
 

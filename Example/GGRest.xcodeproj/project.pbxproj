@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08601686E0A4059DDDC221AA /* Pods_GGRest_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DF9566CD169EDF7E393BFB /* Pods_GGRest_Tests.framework */; };
+		4D5EC3F21C4405370000E674 /* GGTestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5EC3F11C4405370000E674 /* GGTestObject.m */; settings = {ASSET_TAGS = (); }; };
 		4DB52D381C429E7B00FDB565 /* GGWsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB52D361C429D9000FDB565 /* GGWsTest.m */; settings = {ASSET_TAGS = (); }; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -21,7 +22,6 @@
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
-		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		807B4D63F89443CBA7BFADA1 /* Pods_GGRest_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DEFC861BD5E0D039871D682 /* Pods_GGRest_Example.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -39,6 +39,8 @@
 /* Begin PBXFileReference section */
 		16E72D47AC2234742255F831 /* Pods-GGRest_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GGRest_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GGRest_Tests/Pods-GGRest_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3DEFC861BD5E0D039871D682 /* Pods_GGRest_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GGRest_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D5EC3F01C4405370000E674 /* GGTestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGTestObject.h; sourceTree = "<group>"; };
+		4D5EC3F11C4405370000E674 /* GGTestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGTestObject.m; sourceTree = "<group>"; };
 		4DB52D361C429D9000FDB565 /* GGWsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGWsTest.m; sourceTree = "<group>"; };
 		5D2983EB3D86E6499FC2147A /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* GGRest_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GGRest_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -58,7 +60,6 @@
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6C125F491A62865174007D05 /* Pods-GGRest_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GGRest_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GGRest_Tests/Pods-GGRest_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		83274255B71534163E2B9F2F /* Pods-GGRest_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GGRest_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-GGRest_Example/Pods-GGRest_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +96,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D5EC3EF1C44052B0000E674 /* Clases */ = {
+			isa = PBXGroup;
+			children = (
+				4D5EC3F01C4405370000E674 /* GGTestObject.h */,
+				4D5EC3F11C4405370000E674 /* GGTestObject.m */,
+			);
+			path = Clases;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -158,8 +168,8 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				4D5EC3EF1C44052B0000E674 /* Clases */,
 				4DB52D361C429D9000FDB565 /* GGWsTest.m */,
-				6003F5BB195388D20070C39A /* Tests.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -395,6 +405,7 @@
 			files = (
 				6003F59E195388D20070C39A /* GGAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* GGViewController.m in Sources */,
+				4D5EC3F21C4405370000E674 /* GGTestObject.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,7 +414,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F5BC195388D20070C39A /* Tests.m in Sources */,
 				4DB52D381C429E7B00FDB565 /* GGWsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
