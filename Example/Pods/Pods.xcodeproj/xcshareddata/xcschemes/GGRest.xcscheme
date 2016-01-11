@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '51767AF7F068F77458469A00'
+               BlueprintIdentifier = '0F50D38BC4AFB0C1971F2F93'
                BlueprintName = 'GGRest'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'GGRest.framework'>
