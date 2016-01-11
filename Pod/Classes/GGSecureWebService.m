@@ -7,15 +7,11 @@
 #import "GGJsoneableString.h"
 #import "GGHeaders.h"
 #import "GGErrorHelper.h"
+#import "GGHttpClientWraper.h"
 
-typedef enum requestTypesValues{
-    GET=0,
-    POST=1,
-    PUT=2,
-    DELETE=3,
-}GGRequestType;
 
 static GGHeaders *fixedHeaders;
+
 
 @implementation GGSecureWebService
 

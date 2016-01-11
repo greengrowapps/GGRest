@@ -7,7 +7,8 @@
 //
 
 #import "GGViewController.h"
-#import <GGRest/GGSecureWebService.h>
+#import <GGRest/GGWs.h>
+#import "GGJsonHelper.h"
 
 @interface GGViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *editUrl;
@@ -30,23 +31,27 @@
 }
 - (IBAction)bExecuteClick:(id)sender {
     self.tvResponse.text=@"";
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        GGJsonResponse *res=[GGSecureWebService doGet:self.editUrl.text];
-        
-        [self writeLine:[NSString stringWithFormat:@"Respne code:%d",res.responseCode]];
-        [self writeLine:@"Content:"];
-        [self writeLine:res.content];
-        
-    });
+    
+    GGWs *ws=[[GGWs alloc] init];
+    ws.url=self.editUrl.text;
+    ws.method=POST;
+    
+    ws.onOk=^(NSString *s){
+        [self writeLine:s];
+    };
+    
+    ws.onError=^(int code , NSString *content,NSError *error){
+        [self.tvResponse setTextColor:[UIColor redColor]];
+        [self writeLine:content];
+    };
+    
+    [ws execute];
 }
 
 -(void) writeLine:(NSString*) line{
-    dispatch_sync( dispatch_get_main_queue(), ^{
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+   // dispatch_sync( dispatch_get_main_queue(), ^{
         self.tvResponse.text=[NSString stringWithFormat:@"%@ \n %@",self.tvResponse.text,line];
-    });
+   // });
 }
 
 @end

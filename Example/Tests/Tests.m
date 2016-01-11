@@ -8,6 +8,10 @@
 
 // https://github.com/Specta/Specta
 
+#define EXP_SHORTHAND
+
+#include <GGRest/GGSecureWebService.h>
+
 SpecBegin(InitialSpecs)
 
 //describe(@"these will fail", ^{
@@ -41,6 +45,14 @@ describe(@"these will pass", ^{
         waitUntil(^(DoneCallback done) {
             done();
         });
+    });
+});
+
+describe(@"restclient test", ^{
+    
+    it(@"can do request", ^{
+        GGJsonResponse *res=[GGSecureWebService doGet:@"http://www.gogole.es"];
+        expect(1).beLessThan(23);
     });
 });
 

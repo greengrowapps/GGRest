@@ -1,0 +1,41 @@
+//
+//  GGHttpClientWraper.h
+//  Pods
+//
+//  Created by piro on 10/1/16.
+//
+//
+
+#import <Foundation/Foundation.h>
+#import "GGHeaders.h"
+
+
+
+typedef NS_ENUM(NSInteger, GGRequestType)
+{
+    GET=0,
+    POST=1,
+    PUT=2,
+    DELETE=3,
+};
+@protocol GGJsoneableObject;
+
+@protocol GGHttpClientWraperDelegate <NSObject>
+
+@required
+
+-(void)connectionFinish:(int) responseCode data:(NSData*) responseData headers:(NSDictionary*) headers;
+-(void) connectionError:(int) responseCode data:(NSData*) responseData headers:(NSDictionary*) headers error:(NSError*) error;
+
+@end
+
+@protocol GGHttpClientWraper <NSObject>
+
+
+@required
+-(void) doRequestWithUrl:(NSString*) url
+                  metdod:(GGRequestType) method
+                 headers:(GGHeaders*) h
+                    body:(NSData*)body
+                delegate:(id<GGHttpClientWraperDelegate>) delegate;
+@end
