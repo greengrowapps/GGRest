@@ -8,8 +8,8 @@ language: objective-c
 # before_install:
 # - gem install cocoapods # Since Travis is not always on latest version
 # - pod install --project-directory=Example
-before_install:
-  - pip install codecov
+##before_install:
+##  - pip install codecov
 after_success:
   - codecov
 script:
