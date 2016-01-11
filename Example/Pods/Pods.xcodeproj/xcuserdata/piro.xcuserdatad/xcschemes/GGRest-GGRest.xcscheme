@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'CE1A1FACF7211EC2726D2391'
+               BlueprintIdentifier = 'EB1C8C1BDF2F1827CDE4041F'
                BlueprintName = 'GGRest-GGRest'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'GGRest.bundle'>
