@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "GGRest"
-  s.version          = "0.1.11"
+  s.version          = "0.1.12"
   s.summary          = "A small iOs library to make easy connect to a REST webservice"
 
 # This description is used to generate tags and improve search results.
