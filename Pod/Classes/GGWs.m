@@ -152,9 +152,8 @@
 -(void) runOnCallbackQueue:(id) block withBlock:(void (^)()) blockToExecute{
     
     if (block) {
-        [callbackQueue addOperationWithBlock:^(){
-            blockToExecute();
-        }];
+        NSOperation *op=[NSBlockOperation blockOperationWithBlock:blockToExecute];
+        [callbackQueue addOperations:[NSArray arrayWithObject:op] waitUntilFinished:true];
     }
     
     if(latch){
