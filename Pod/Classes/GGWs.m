@@ -139,7 +139,7 @@
 -(void)connectionFinish:(GGHttpResponse*) fullResponse{
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    
+    _response=fullResponse;
     id b = [customResponses objectForKey:[NSNumber numberWithInt:fullResponse.code]];
     
     if(b){
@@ -165,6 +165,7 @@
 -(void) connectionError:(GGHttpResponse*) fullResponse
                   error:(NSError*) error{
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    _response=fullResponse;
 
     if(self.onError){
 

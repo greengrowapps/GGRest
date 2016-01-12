@@ -26,14 +26,17 @@ typedef void (^ErrorBlock)(GGHttpResponse* fullResponse ,NSError *error);
 @property(nonatomic) id<GGJsoneableObject> bodyData;
 @property(nonatomic) NSArray *serializationViews;
 
-
-
+@property(nonatomic, copy) ObjectResponseBlock onOk;
+@property(nonatomic, copy) ArrayResponseBlock onOkArray;
 @property(nonatomic, copy) ErrorBlock onError;
+
+@property(nonatomic,readonly) GGHttpResponse *response;
+
 
 -(instancetype)initWithClient:(id<GGHttpClientWraper>) client;
 
-@property(nonatomic, copy) ObjectResponseBlock onOk;
-@property(nonatomic, copy) ArrayResponseBlock onOkArray;
+
+
 
 -(void) onResponse:(int) code objectCallBack:(ObjectResponseBlock) b;
 -(void) onResponse:(int) code arrayCallBack:(ArrayResponseBlock) b;
