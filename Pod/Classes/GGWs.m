@@ -19,6 +19,7 @@
     NSOperationQueue* callbackQueue;
     id<GGHttpClientWraper> httpclient;
     NSMutableDictionary *customResponses;
+    dispatch_semaphore_t latch;
 }
 
 @end
@@ -73,6 +74,21 @@
                         delegate:self];
     
 }
+
+-(void) executeAndWait{
+    latch=dispatch_semaphore_create(0);
+    
+    NSOperationQueue *q=[[NSOperationQueue alloc] init];
+    
+    [q addOperationWithBlock:^(){
+        [self execute];
+    }];
+    
+    long result= dispatch_semaphore_wait(latch, DISPATCH_TIME_FOREVER);
+    latch=nil;
+    NSLog(@"result:%ld",result);
+}
+
 #pragma mark -private methods
 
 -(NSData*) bodyToData{
@@ -133,6 +149,19 @@
     
 }
 
+-(void) runOnCallbackQueue:(id) block withBlock:(void (^)()) blockToExecute{
+    
+    if (block) {
+        [callbackQueue addOperationWithBlock:^(){
+            blockToExecute();
+        }];
+    }
+    
+    if(latch){
+        dispatch_semaphore_signal(latch);
+    }
+}
+
 
 #pragma mark httpClientWraperDelegate
 
@@ -144,19 +173,19 @@
     
     if(b){
         id<GGJsoneableObject> o = [self objectForBlock:b withResponse:fullResponse];
-        [callbackQueue addOperationWithBlock:^(){
+        
+        [self runOnCallbackQueue:b withBlock:^(void){
             if([o isKindOfClass:[NSArray class]]){
                 ((ArrayResponseBlock) b)((NSArray*)o,nil);
             }else{
                 ((ObjectResponseBlock)b)(o);
             }
         }];
+        
     }else{
-        if(self.onError){
-            [callbackQueue addOperationWithBlock:^(){
-                self.onError(fullResponse,nil);
-            }];
-        }
+        [self runOnCallbackQueue:self.onError withBlock:^(){
+            self.onError(fullResponse,nil);
+        }];
     }
     
     
@@ -167,12 +196,9 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     _response=fullResponse;
 
-    if(self.onError){
-
-        [callbackQueue addOperationWithBlock:^(){
-            self.onError(fullResponse,error);
-        }];
-    }
+    [self runOnCallbackQueue:self.onError withBlock:^(){
+        self.onError(fullResponse,error);
+    }];
 }
 #pragma mark - public methods
 

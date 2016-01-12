@@ -9,6 +9,14 @@
 
 @implementation GGHeaders
 
+-(id) initWitNSHTTPURLResponseHeaders:(NSDictionary*) headers{
+    self=[super init];
+    if(self){
+        
+    }
+    return self;
+}
+
 - (id)init
 {
     self = [super init];

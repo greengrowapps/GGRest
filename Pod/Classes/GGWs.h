@@ -42,5 +42,7 @@ typedef void (^ErrorBlock)(GGHttpResponse* fullResponse ,NSError *error);
 -(void) onResponse:(int) code arrayCallBack:(ArrayResponseBlock) b;
 
 -(void) execute;
+-(void) executeAndWait;
+
 
 @end

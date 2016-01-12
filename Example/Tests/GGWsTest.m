@@ -140,4 +140,23 @@ describe(@"serializations", ^(){
         });
     });
 });
+
+describe(@"threading", ^(){
+    it(@"execute and wait", ^(){
+        __block BOOL succes=false;
+        GGWs *ws=[[GGWs alloc] initWithClient:client];
+        ws.url=okUrl;
+        ws.method=GET;
+        ws.onOk=^(GGHttpResponse *res){
+            succes=true;
+        };
+        ws.onError=^(GGHttpResponse *res, NSError *error){
+            succes=true;
+        };
+        
+        [ws executeAndWait];
+        expect(succes).to.equal(true);
+    });
+});
+
 SpecEnd
