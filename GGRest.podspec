@@ -1,4 +1,4 @@
-#
+# 
 # Be sure to run `pod lib lint GGRest.podspec' to ensure this is a
 # valid spec before submitting.
 #
