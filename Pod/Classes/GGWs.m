@@ -133,8 +133,7 @@
 
 -(NSArray*) blockParamsClassesForBlock:(id) block{
     NSMethodSignature *signature = [[[CTBlockDescription alloc] initWithBlock:block] blockSignature];
-    NSLog(@"signature %@", [signature debugDescription]);
-    
+   ///// NSLog(@"signature %@", [signature debugDescription]);
     
     NSMutableArray *ret=[[NSMutableArray alloc] init];
     
