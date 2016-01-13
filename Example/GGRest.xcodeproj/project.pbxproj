@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		08601686E0A4059DDDC221AA /* Pods_GGRest_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DF9566CD169EDF7E393BFB /* Pods_GGRest_Tests.framework */; };
+		4D2716CB1C46D2EF00191F73 /* GGJSonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2716CA1C46D2EF00191F73 /* GGJSonTest.m */; settings = {ASSET_TAGS = (); }; };
+		4D2716CE1C46D78700191F73 /* TestObject.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D2716CC1C46D62600191F73 /* TestObject.json */; settings = {ASSET_TAGS = (); }; };
 		4D5EC3F21C4405370000E674 /* GGTestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5EC3F11C4405370000E674 /* GGTestObject.m */; settings = {ASSET_TAGS = (); }; };
 		4DB52D381C429E7B00FDB565 /* GGWsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB52D361C429D9000FDB565 /* GGWsTest.m */; settings = {ASSET_TAGS = (); }; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -39,6 +41,8 @@
 /* Begin PBXFileReference section */
 		16E72D47AC2234742255F831 /* Pods-GGRest_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GGRest_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GGRest_Tests/Pods-GGRest_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		3DEFC861BD5E0D039871D682 /* Pods_GGRest_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GGRest_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D2716CA1C46D2EF00191F73 /* GGJSonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGJSonTest.m; sourceTree = "<group>"; };
+		4D2716CC1C46D62600191F73 /* TestObject.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestObject.json; sourceTree = "<group>"; };
 		4D5EC3F01C4405370000E674 /* GGTestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGTestObject.h; sourceTree = "<group>"; };
 		4D5EC3F11C4405370000E674 /* GGTestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGTestObject.m; sourceTree = "<group>"; };
 		4DB52D361C429D9000FDB565 /* GGWsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGWsTest.m; sourceTree = "<group>"; };
@@ -170,6 +174,7 @@
 			children = (
 				4D5EC3EF1C44052B0000E674 /* Clases */,
 				4DB52D361C429D9000FDB565 /* GGWsTest.m */,
+				4D2716CA1C46D2EF00191F73 /* GGJSonTest.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
@@ -181,6 +186,7 @@
 				6003F5B7195388D20070C39A /* Tests-Info.plist */,
 				6003F5B8195388D20070C39A /* InfoPlist.strings */,
 				606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */,
+				4D2716CC1C46D62600191F73 /* TestObject.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D2716CE1C46D78700191F73 /* TestObject.json in Resources */,
 				6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DB52D381C429E7B00FDB565 /* GGWsTest.m in Sources */,
+				4D2716CB1C46D2EF00191F73 /* GGJSonTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

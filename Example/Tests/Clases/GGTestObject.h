@@ -11,5 +11,8 @@
 
 
 @interface GGTestObject : NSObject <GGJsoneableObject>
+@property(nonatomic) int intField;
+@property(nonatomic) float floatField;
+@property(nonatomic) NSString* stringField;
 
 @end

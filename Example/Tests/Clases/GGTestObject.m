@@ -9,6 +9,11 @@
 #import "GGTestObject.h"
 #import <GGRest/GGJsonHelper.h>
 
+#define jskIntValue @"intValue"
+#define jskFloatValue @"floatValue"
+#define jskStringValue @"stringValue"
+
+
 @implementation GGTestObject
 
 
@@ -18,7 +23,11 @@
 }
 -(instancetype)initWithJsonDic:(NSDictionary *)json{
     self = [super init];
-    
+    if(self){
+        self.intField=[json getIntForKey:jskIntValue];
+        self.floatField=[json getFloatForKey:jskFloatValue];
+        self.stringField=[json getStringForKey:jskStringValue];
+    }
     return self;
 }
 
