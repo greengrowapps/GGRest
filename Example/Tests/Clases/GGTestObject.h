@@ -14,5 +14,11 @@
 @property(nonatomic) int intField;
 @property(nonatomic) float floatField;
 @property(nonatomic) NSString* stringField;
+@property(nonatomic) NSDate *dateField;
+@property(nonatomic) NSDate *dateTimeField;
+@property(nonatomic) BOOL booleanField;
+@property(nonatomic) GGTestObject *child;
+@property(nonatomic) NSArray<GGTestObject*> *childArray;
+
 
 @end

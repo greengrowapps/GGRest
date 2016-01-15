@@ -39,6 +39,24 @@
     XCTAssertEqual(obj.intField, 12);
     XCTAssertEqualWithAccuracy(obj.floatField, 12.4, 0.01);
     XCTAssertEqualObjects(obj.stringField, @"hello");
+   //TODO validate dates
+    
+    XCTAssertEqual(obj.booleanField, true);
+    
+    [self validateObjectChild:obj.child];
+    
+    XCTAssertNotNil(obj.childArray);
+    XCTAssertEqual(obj.childArray.count, 3);
+    
+    for(GGTestObject *child in obj.childArray){
+        [self validateObjectChild:child];
+    }
+    
+    
+}
+-(void) validateObjectChild:(GGTestObject *) obj{
+    XCTAssertNotNil(obj);
+    XCTAssertEqual(obj.intField, 12);    
 }
 
 -(void) testArraySerialization{

@@ -12,6 +12,13 @@
 #define jskIntValue @"intValue"
 #define jskFloatValue @"floatValue"
 #define jskStringValue @"stringValue"
+#define jskDateValue @"dateValue"
+#define jskDateTimeValue @"dateTimeValue"
+#define jskBooleanValue @"booleanValue"
+#define jskchild @"child"
+#define jskchildArray @"childArray"
+
+
 
 
 @implementation GGTestObject
@@ -27,6 +34,11 @@
         self.intField=[json getIntForKey:jskIntValue];
         self.floatField=[json getFloatForKey:jskFloatValue];
         self.stringField=[json getStringForKey:jskStringValue];
+        self.dateField=[json getDateForKey:jskDateValue];
+        self.dateTimeField=[json getDateForKey:jskDateTimeValue];
+        self.booleanField=[json getBooleanForKey:jskBooleanValue];
+        self.child=[json getObjectForKey:jskchild ofType:[GGTestObject class]];
+        self.childArray=[json getObjectArrayForKey:jskchildArray ofType:[GGTestObject class]];
     }
     return self;
 }

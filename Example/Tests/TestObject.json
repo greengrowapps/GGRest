@@ -1,1 +1,18 @@
-{"intValue":12 ,"floatValue":12.4,"stringValue":"hello"}
+{
+    "intValue": 12,
+    "floatValue": 12.4,
+    "stringValue": "hello",
+    "dateValue": "07-05-1987",
+    "dateTimeValue": "07-05-1987 '07:13:15",
+    "booleanValue": "true",
+    "child": {
+        "intValue": 12
+    },
+    "childArray": [{
+                   "intValue": 12
+                   }, {
+                   "intValue": 12
+                   }, {
+                   "intValue": 12
+                   }]
+}
