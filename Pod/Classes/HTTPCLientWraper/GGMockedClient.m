@@ -7,6 +7,7 @@
 //
 
 #import "GGMockedClient.h"
+#import "GGHeaders.h"
 
 @interface GGMockedClient(){
     int delayTime;
@@ -49,7 +50,7 @@
         GGHttpResponse *fullResponse =
         [[GGHttpResponse alloc] initWithCode:code.intValue
                                         data:[content dataUsingEncoding:NSUTF8StringEncoding]
-                                     headers:nil];
+                                     headers:[[GGHeaders alloc] initWithInitialKey:@"server" andValue:@"mocked httpClient"]];
         
         sleep(delayTime);
         

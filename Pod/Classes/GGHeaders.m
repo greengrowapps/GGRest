@@ -3,53 +3,51 @@
 #import "GGHeaders.h"
 
 @interface GGHeaders ()
-@property (nonatomic , strong) NSMutableArray *keys;
-@property (nonatomic , strong) NSMutableArray *values;
+@property (nonatomic , strong) NSMutableDictionary *headers;
 @end
 
 @implementation GGHeaders
 
--(id) initWitNSHTTPURLResponseHeaders:(NSDictionary*) headers{
+-(id) init{
     self=[super init];
     if(self){
+        self.headers=[[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
+-(id) initWitNSHTTPURLResponseHeaders:(NSDictionary*) httpHeaders{
+    self=[super init];
+    if(self){
+        self.headers=[[NSMutableDictionary alloc] init];
+        
+        for(NSString *key in httpHeaders.allKeys){
+            NSString *valuesString=[httpHeaders objectForKey:key];
+            NSArray *values=[valuesString componentsSeparatedByString:@"; "];
+            NSMutableArray *valuesToadd=[[NSMutableArray alloc] initWithArray:values];
+            [self.headers setObject:valuesToadd forKey:key];
+        }
         
     }
     return self;
 }
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        self.keys=[[NSMutableArray alloc] init];
-        self.values=[[NSMutableArray alloc] init];
-    }
-    return self;
-}
+
 
 - (id)initWithInitialKey:(NSString *) key andValue:(NSString*) value
 {
     self = [super init];
     if (self) {
-        self.keys=[[NSMutableArray alloc] initWithObjects:key, nil];
-        self.values=[[NSMutableArray alloc] initWithObjects:value, nil];
+        self.headers=[[NSMutableDictionary alloc] init];
+        
+        NSMutableArray *values=[[NSMutableArray alloc] initWithObjects:value, nil];
+        [self.headers setObject:values forKey:key];
+
     }
     return self;
 }
 
--(int) count{
-    return [self.keys count];
-}
--(NSString*) getKeyAtIndex:(int) index{
-    return [self.keys objectAtIndex:index];
-}
--(NSString*) getValueAtIndex:(int) index{
-    return [self.values objectAtIndex:index];
-}
--(void) addHeaderWith:(NSString *) key andValue:(NSString *) value{
-    [self.keys addObject:key];
-    [self.values addObject:value];
-}
+
 
 
 

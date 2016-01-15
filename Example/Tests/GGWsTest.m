@@ -122,6 +122,33 @@ describe(@"Response codes", ^{
             [ws execute];
         });
     });
+    
+    it(@"ok response detected with onOk", ^{
+        waitUntil(^(DoneCallback done) {
+            GGWs *ws=[[GGWs alloc] initWithClient:client];
+            ws.url=okUrl;
+            ws.method=GET;
+            ws.onOk=^(NSString *s){
+                GGHttpResponse *fullResponse= ws.response;
+                expect(fullResponse).toNot.beNil();
+                done();
+            };
+            [ws execute];
+        });
+    });
+    
+    it(@"real request", ^{
+        waitUntil(^(DoneCallback done) {
+            GGWs *ws=[[GGWs alloc] init];
+            ws.url=@"https://google.es";
+            ws.method=GET;
+            [ws onResponse:200 objectCallBack:^(GGHttpResponse *fullResponse){
+                expect(fullResponse.code).to.equal(200);
+                done();
+            }];
+            [ws execute];
+        });
+    });
 });
 
 describe(@"serializations", ^(){
