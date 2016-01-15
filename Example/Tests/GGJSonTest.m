@@ -56,7 +56,7 @@
 }
 -(void) validateObjectChild:(GGTestObject *) obj{
     XCTAssertNotNil(obj);
-    XCTAssertEqual(obj.intField, 12);    
+    XCTAssertEqual(obj.intField, 13);
 }
 
 -(void) testArraySerialization{
@@ -71,6 +71,7 @@
 -(void) testDeserialization{
     
     GGTestObject *o= [GGTestObject fromJsonString:objectJson];
+    [self validateObject:o];
     NSString *json=[o toJsonStringWithViews:nil];
     
     XCTAssertNotNil(json);
@@ -82,6 +83,11 @@
                                                                      error:&jsonError];
 
     XCTAssertNil(jsonError);
+    
+    
+    GGTestObject *second=[GGTestObject fromJsonObject:jsonDictionary];
+    
+    [self validateObject:second];
     
 }
 

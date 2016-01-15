@@ -26,6 +26,15 @@
 
 -(NSMutableDictionary *)toJsonDicWithViews:(NSArray *)views{
     NSMutableDictionary *ret=[super toJsonDicWithViews:views];
+    
+    [ret setInt:self.intField forKey:jskIntValue];
+    [ret setFloat:self.floatField forKey:jskFloatValue];
+    [ret setString:self.stringField forKey:jskStringValue];
+    [ret setDate:self.dateField forKey:jskDateValue];
+    [ret setDate:self.dateTimeField forKey:jskDateTimeValue];
+    [ret setBoolean:self.booleanField forKey:jskBooleanValue];
+    [ret setJsoneableObject:self.child forKey:jskchild withWiews:views];
+    [ret setObjectArray:self.childArray forKey:jskchildArray withWiews:views];
     return ret;
 }
 -(instancetype)initWithJsonDic:(NSDictionary *)json{
