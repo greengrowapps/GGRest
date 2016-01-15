@@ -68,6 +68,23 @@
     
 }
 
+-(void) testDeserialization{
+    
+    GGTestObject *o= [GGTestObject fromJsonString:objectJson];
+    NSString *json=[o toJsonStringWithViews:nil];
+    
+    XCTAssertNotNil(json);
+    
+    NSData *jsonData=[json dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *jsonError = nil;
+    NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                   options:NSJSONReadingMutableContainers
+                                                                     error:&jsonError];
+
+    XCTAssertNil(jsonError);
+    
+}
+
 
 
 @end
