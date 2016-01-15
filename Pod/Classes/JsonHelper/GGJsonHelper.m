@@ -30,25 +30,7 @@
     return jsonString;
 }
 
-+(NSString *) JsonArrayOfDicToString:(NSArray *)jsonArrayOfDic{
-    if (jsonArrayOfDic == nil)
-    {
-        return nil;
-    }
-    
-    NSError *jsonError = nil;
-    NSData *jsonData=[NSJSONSerialization dataWithJSONObject:jsonArrayOfDic
-                                                     options:-1
-                                                       error:&jsonError];
-    
-    if(jsonError){
-        NSLog(@"jsonError: %@", jsonError.description);
-    }
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData
-                                                 encoding:NSUTF8StringEncoding];
-    
-    return jsonString;
-}
+
 
 
 
@@ -93,60 +75,10 @@
 
 
 
-+(long long) getLongLong:(NSDictionary*)jso withName:(NSString*)name{
-    NSNumber *n=NULL_TO_NIL([jso objectForKey:name]);
-    return [n longLongValue];
-}
-
-
-
-+(BOOL) getBool:(NSDictionary*)jso withName:(NSString*)name{
-    NSNumber *n=NULL_TO_NIL([jso objectForKey:name]);
-    return [n boolValue];
-}
 
 
 
 
-+ (NSDictionary *)getObjectDictionary:(NSDictionary *)dictionary
-                             withName:(NSString *)key
-{
-    return NULL_TO_NIL([dictionary objectForKey:key]);
-}
-
-+ (NSArray *)getObjectArray:(NSDictionary *)dictionary
-                   withName:(NSString *)key {
-    return NULL_TO_NIL([dictionary objectForKey:key]);
-}
-
-+ (NSString *)getStringFullDateFromDate:(NSDate *)date
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = kDatetimeUtc;
-    NSString *dateString = [dateFormatter stringFromDate:date];
-    return dateString;
-}
-
-+ (NSString *)getStringDateFromDate:(NSDate *)date
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    dateFormatter.dateFormat = kOnlyDateFormat;
-    NSString *dateString = [dateFormatter stringFromDate:date];
-    return dateString;
-}
-
-
-+(void) setDate:(NSDate*) date toDic:(NSMutableDictionary*)dic forKey:(NSString *) key{
-    if(!date || !dic){ return;}
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    
-    dateFormatter.dateFormat = kDatetimeFormat;
-    NSString *dateString= [dateFormatter stringFromDate:date];
-    if(!dateString){return;}
-    
-    [dic setObject:dateString forKey:key];
-}
 
 
 @end
