@@ -18,7 +18,7 @@
 @property(nonatomic) NSDate *dateTimeField;
 @property(nonatomic) BOOL booleanField;
 @property(nonatomic) GGTestObject *child;
-@property(nonatomic) NSArray<GGTestObject*> *childArray;
+@property(nonatomic) NSArray *childArray;
 
 
 @end
