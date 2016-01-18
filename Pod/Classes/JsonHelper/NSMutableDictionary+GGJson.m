@@ -1,6 +1,7 @@
 
 #import "NSMutableDictionary+GGJson.h"
 #import "GGJsoneableArray.h"
+#import "GGJsonHelper.h"
 
 @implementation  NSMutableDictionary(GGJson)
 
@@ -16,7 +17,8 @@
 }
 
 -(void) setDate:(NSDate*)d forKey:(NSString*)key{
-    [self setObject:[NSNumber numberWithLong:d.timeIntervalSince1970*1000] forKey:key];
+   // [self setObject:[NSNumber numberWithLong:d.timeIntervalSince1970*1000] forKey:key];
+    [self setObject:[GGJsonHelper formatDateWithConverters:d] forKey:key];
 }
 -(void) setBoolean:(BOOL)d forKey:(NSString*)key{
     [self setObject:[NSNumber numberWithBool:d] forKey:key];
@@ -44,9 +46,6 @@
     [self setObject:[obj toJsonDicWithViews:views] forKey:key];
 }
 
-+(instancetype) create{
-   return [[self alloc] init];
-}
 
 
 

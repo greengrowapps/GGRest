@@ -13,6 +13,7 @@
 #import "GGjsonHelper.h"
 #import "GGHttpClientImpl.h"
 #import "GGHttpResponse.h"
+#import "GGAuthentication.h"
 
 
 @interface GGWs() <GGHttpClientWraperDelegate>{
@@ -53,11 +54,16 @@
     self.url=nil;
     self.method=-1;
     self.serializationViews=nil;
+    self.headers=nil;
+    self.authentication=nil;
     customResponses=[[NSMutableDictionary alloc] init];
 }
 
 
 -(void) checkIntegrity{
+    if(!self.headers){
+        self.headers=[[GGHeaders alloc] init];
+    }
     
 }
 
@@ -67,9 +73,12 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     callbackQueue = [NSOperationQueue currentQueue];
     
+    
+    [self.authentication processHeaders:self.headers];
+    
     [httpclient doRequestWithUrl:self.url
                           metdod:self.method
-                         headers:nil
+                         headers:self.headers
                             body:[self bodyToData]
                         delegate:self];
     
@@ -86,7 +95,6 @@
     
     long result= dispatch_semaphore_wait(latch, DISPATCH_TIME_FOREVER);
     latch=nil;
-    NSLog(@"result:%ld",result);
 }
 
 #pragma mark -private methods

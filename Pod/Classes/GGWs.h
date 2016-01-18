@@ -9,13 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "GGJsoneableObject.h"
 #import "GGHttpClientWraper.h"
+#import "GGHeaders.h"
+#import "GGHttpBasicAuth.h"
+#import "GGHttpResponse.h"
 
 
-@class GGHttpResponse;
+
 @interface GGWs : NSObject
 
 typedef void (^ObjectResponseBlock)(id<GGJsoneableObject> o);
-typedef void (^ObjectResponseBlockFull)(id<GGJsoneableObject> o,GGHttpResponse *fullResponse);
 typedef void (^ArrayResponseBlock)(NSArray *array, id<GGJsoneableObject> o);
 
 typedef void (^ErrorBlock)(GGHttpResponse* fullResponse ,NSError *error);
@@ -25,6 +27,8 @@ typedef void (^ErrorBlock)(GGHttpResponse* fullResponse ,NSError *error);
 @property(nonatomic) NSString* url;
 @property(nonatomic) id<GGJsoneableObject> bodyData;
 @property(nonatomic) NSArray *serializationViews;
+@property(nonatomic) GGHeaders *headers;
+@property(nonatomic) GGAuthentication *authentication;
 
 @property(nonatomic, copy) ObjectResponseBlock onOk;
 @property(nonatomic, copy) ArrayResponseBlock onOkArray;

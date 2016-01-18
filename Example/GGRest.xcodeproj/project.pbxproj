@@ -10,6 +10,12 @@
 		08601686E0A4059DDDC221AA /* Pods_GGRest_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DF9566CD169EDF7E393BFB /* Pods_GGRest_Tests.framework */; };
 		4D2716CB1C46D2EF00191F73 /* GGJSonTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2716CA1C46D2EF00191F73 /* GGJSonTest.m */; settings = {ASSET_TAGS = (); }; };
 		4D2716CE1C46D78700191F73 /* TestObject.json in Resources */ = {isa = PBXBuildFile; fileRef = 4D2716CC1C46D62600191F73 /* TestObject.json */; settings = {ASSET_TAGS = (); }; };
+		4D4C04461C4D1CF7007F1786 /* GGCommitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C04451C4D1CF7007F1786 /* GGCommitsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		4D4C04491C4D22C3007F1786 /* GGCommitTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C04481C4D22C3007F1786 /* GGCommitTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		4D4C04591C4D4C00007F1786 /* GGCommitItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C04541C4D4C00007F1786 /* GGCommitItem.m */; settings = {ASSET_TAGS = (); }; };
+		4D4C045A1C4D4C00007F1786 /* GGGitCommit.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C04561C4D4C00007F1786 /* GGGitCommit.m */; settings = {ASSET_TAGS = (); }; };
+		4D4C045B1C4D4C00007F1786 /* GGGitUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C04581C4D4C00007F1786 /* GGGitUser.m */; settings = {ASSET_TAGS = (); }; };
+		4D4C045E1C4D4C18007F1786 /* GGAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C045D1C4D4C18007F1786 /* GGAuthor.m */; settings = {ASSET_TAGS = (); }; };
 		4D5EC3F21C4405370000E674 /* GGTestObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5EC3F11C4405370000E674 /* GGTestObject.m */; settings = {ASSET_TAGS = (); }; };
 		4DB52D381C429E7B00FDB565 /* GGWsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB52D361C429D9000FDB565 /* GGWsTest.m */; settings = {ASSET_TAGS = (); }; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -43,6 +49,18 @@
 		3DEFC861BD5E0D039871D682 /* Pods_GGRest_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GGRest_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D2716CA1C46D2EF00191F73 /* GGJSonTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGJSonTest.m; sourceTree = "<group>"; };
 		4D2716CC1C46D62600191F73 /* TestObject.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = TestObject.json; sourceTree = "<group>"; };
+		4D4C04441C4D1CF7007F1786 /* GGCommitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGCommitsViewController.h; sourceTree = "<group>"; };
+		4D4C04451C4D1CF7007F1786 /* GGCommitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGCommitsViewController.m; sourceTree = "<group>"; };
+		4D4C04471C4D22C3007F1786 /* GGCommitTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGCommitTableViewCell.h; sourceTree = "<group>"; };
+		4D4C04481C4D22C3007F1786 /* GGCommitTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGCommitTableViewCell.m; sourceTree = "<group>"; };
+		4D4C04531C4D4C00007F1786 /* GGCommitItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGCommitItem.h; sourceTree = "<group>"; };
+		4D4C04541C4D4C00007F1786 /* GGCommitItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGCommitItem.m; sourceTree = "<group>"; };
+		4D4C04551C4D4C00007F1786 /* GGGitCommit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGGitCommit.h; sourceTree = "<group>"; };
+		4D4C04561C4D4C00007F1786 /* GGGitCommit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGGitCommit.m; sourceTree = "<group>"; };
+		4D4C04571C4D4C00007F1786 /* GGGitUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGGitUser.h; sourceTree = "<group>"; };
+		4D4C04581C4D4C00007F1786 /* GGGitUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGGitUser.m; sourceTree = "<group>"; };
+		4D4C045C1C4D4C18007F1786 /* GGAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGAuthor.h; sourceTree = "<group>"; };
+		4D4C045D1C4D4C18007F1786 /* GGAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGAuthor.m; sourceTree = "<group>"; };
 		4D5EC3F01C4405370000E674 /* GGTestObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGTestObject.h; sourceTree = "<group>"; };
 		4D5EC3F11C4405370000E674 /* GGTestObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGTestObject.m; sourceTree = "<group>"; };
 		4DB52D361C429D9000FDB565 /* GGWsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGWsTest.m; sourceTree = "<group>"; };
@@ -100,6 +118,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D4C04521C4D4BCE007F1786 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				4D4C04531C4D4C00007F1786 /* GGCommitItem.h */,
+				4D4C04541C4D4C00007F1786 /* GGCommitItem.m */,
+				4D4C04551C4D4C00007F1786 /* GGGitCommit.h */,
+				4D4C04561C4D4C00007F1786 /* GGGitCommit.m */,
+				4D4C04571C4D4C00007F1786 /* GGGitUser.h */,
+				4D4C04581C4D4C00007F1786 /* GGGitUser.m */,
+				4D4C045C1C4D4C18007F1786 /* GGAuthor.h */,
+				4D4C045D1C4D4C18007F1786 /* GGAuthor.m */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
 		4D5EC3EF1C44052B0000E674 /* Clases */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +179,7 @@
 		6003F593195388D20070C39A /* Example for GGRest */ = {
 			isa = PBXGroup;
 			children = (
+				4D4C04521C4D4BCE007F1786 /* DTO */,
 				6003F59C195388D20070C39A /* GGAppDelegate.h */,
 				6003F59D195388D20070C39A /* GGAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -153,6 +187,10 @@
 				6003F5A6195388D20070C39A /* GGViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				4D4C04441C4D1CF7007F1786 /* GGCommitsViewController.h */,
+				4D4C04451C4D1CF7007F1786 /* GGCommitsViewController.m */,
+				4D4C04471C4D22C3007F1786 /* GGCommitTableViewCell.h */,
+				4D4C04481C4D22C3007F1786 /* GGCommitTableViewCell.m */,
 			);
 			name = "Example for GGRest";
 			path = GGRest;
@@ -410,10 +448,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D4C045B1C4D4C00007F1786 /* GGGitUser.m in Sources */,
 				6003F59E195388D20070C39A /* GGAppDelegate.m in Sources */,
+				4D4C04591C4D4C00007F1786 /* GGCommitItem.m in Sources */,
 				6003F5A7195388D20070C39A /* GGViewController.m in Sources */,
+				4D4C045E1C4D4C18007F1786 /* GGAuthor.m in Sources */,
+				4D4C045A1C4D4C00007F1786 /* GGGitCommit.m in Sources */,
 				4D5EC3F21C4405370000E674 /* GGTestObject.m in Sources */,
+				4D4C04491C4D22C3007F1786 /* GGCommitTableViewCell.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				4D4C04461C4D1CF7007F1786 /* GGCommitsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

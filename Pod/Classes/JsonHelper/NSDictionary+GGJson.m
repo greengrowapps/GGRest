@@ -1,10 +1,6 @@
 
 #define NULL_TO_NIL(obj) ({ __typeof__ (obj) __obj = (obj); __obj == [NSNull null] ? nil : obj; })
 
-#define kDatetimeFormat @"dd-MM-yyyy HH:mm:ss"
-#define kDatetimeUtc @"dd/MM/yyyy"
-#define kOnlyDateFormat @"dd-MM-yyyy";
-
 #import "NSDictionary+GGJson.h"
 #import "GGJsoneableArray.h"
 #import "GGJsonHelper.h"
@@ -43,27 +39,11 @@
     if(!dateString && !dateNumber){return nil;}
     
     if([dateString isKindOfClass:[NSString class]]){
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    
-    dateFormatter.dateFormat = kDatetimeUtc;
-    //    dateFormatter.timeZone = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
-    d= [dateFormatter dateFromString:dateString];
-    if(d){return d;}
-    
-    dateFormatter.dateFormat = kDatetimeFormat;
-    d= [dateFormatter dateFromString:dateString];
-    if(d){return d;}
-    
-    
-    dateFormatter.dateFormat=kOnlyDateFormat;
-    d= [dateFormatter dateFromString:dateString];
-    
-     if(d){return d;}
+        
+        return [GGJsonHelper parseDateWithConverters:dateString];
     }else{
-        //TODO date with timestamp
         return [NSDate dateWithTimeIntervalSince1970:dateNumber.doubleValue/1000];
     }
-    
     
     return d;
 }

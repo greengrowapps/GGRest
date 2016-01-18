@@ -123,7 +123,7 @@ describe(@"Response codes", ^{
         });
     });
     
-    it(@"ok response detected with onOk", ^{
+    it(@"read response from ws inside ok block", ^{
         waitUntil(^(DoneCallback done) {
             GGWs *ws=[[GGWs alloc] initWithClient:client];
             ws.url=okUrl;
@@ -149,6 +149,25 @@ describe(@"Response codes", ^{
             [ws execute];
         });
     });
+    
+    it(@"real autorization", ^{
+        waitUntil(^(DoneCallback done) {
+            GGWs *ws=[[GGWs alloc] init];
+            ws.url=@"https://httpbin.org/basic-auth/user123/passwd123";
+            ws.method=GET;
+            ws.authentication=[[GGHttpBasicAuth alloc] initWithUsername:@"user123" andPassword:@"passwd123"];
+            [ws onResponse:200 objectCallBack:^(GGHttpResponse *fullResponse){
+                expect(fullResponse.code).to.equal(200);
+                done();
+            }];
+            ws.onError=^(GGHttpResponse *response,NSError *error){
+                NSLog(@"Error");
+            };
+        
+            [ws execute];
+        });
+    });
+
 });
 
 describe(@"serializations", ^(){

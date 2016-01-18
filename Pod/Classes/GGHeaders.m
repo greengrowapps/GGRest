@@ -47,6 +47,40 @@
     return self;
 }
 
+-(void) addValue:(NSString *)value forKey:(NSString*) key{
+    NSMutableArray *values=[self getValuesForKey:key];
+    [values addObject:value];
+}
+
+-(void) addValues:(NSArray *)values forKey:(NSString*) key{
+    for(NSString *v in values){
+        [self addValue:v forKey:key];
+    }
+}
+-(void) printHeadersInRequest:(NSMutableURLRequest*)r{
+    [r setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+
+    for(NSString *key in self.headers){
+        NSArray *values = [self getValuesForKey:key];
+        
+        if(values.count == 1){
+            [r setValue:values[0] forHTTPHeaderField:key];
+        }
+        
+    }
+    
+}
+
+-(NSMutableArray *) getValuesForKey:(NSString*) key{
+   NSMutableArray *values= [self.headers objectForKey:key];
+    if(!values){
+        values=[[NSMutableArray alloc] init];
+        [self.headers setObject:values forKey:key];
+    }
+    
+    return values;
+}
+
 
 
 

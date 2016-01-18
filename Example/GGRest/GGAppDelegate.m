@@ -7,11 +7,13 @@
 //
 
 #import "GGAppDelegate.h"
+#import "GGRest/GGJsonHelper.h"
 
 @implementation GGAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [GGJsonHelper addDateConverter:[[GGDateConverter alloc] initWithFormat:@"yyyy-MM-dd'T'HH:mm:ss'Z'"]];
     return YES;
 }
 

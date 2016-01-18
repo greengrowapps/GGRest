@@ -53,6 +53,18 @@
 		4745B7476AD392681F0763759A50082A /* GGJsoneableArray.h in Headers */ = {isa = PBXBuildFile; fileRef = C370B25DC668B651DBA3D39C6E06CB26 /* GGJsoneableArray.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		477C5D1D0725B19D5D405F2FE30467BA /* CTBlockDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 3691443F72208B40DC2955BDC201789C /* CTBlockDescription.m */; };
 		4BBCBB9D8EF0B241A4A4FE4982985481 /* ExpectaSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 924BF15B0F1D99CAD6E46F0030F50C50 /* ExpectaSupport.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4D4C042D1C4CE119007F1786 /* GGHttpBasicAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D4C042B1C4CE119007F1786 /* GGHttpBasicAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D4C042E1C4CE119007F1786 /* GGHttpBasicAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C042C1C4CE119007F1786 /* GGHttpBasicAuth.m */; settings = {ASSET_TAGS = (); }; };
+		4D4C04321C4CE7BE007F1786 /* GGSha1.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D4C04301C4CE7BE007F1786 /* GGSha1.h */; settings = {ASSET_TAGS = (); }; };
+		4D4C04331C4CE7BE007F1786 /* GGSha1.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C04311C4CE7BE007F1786 /* GGSha1.m */; settings = {ASSET_TAGS = (); }; };
+		4D4C04361C4CE7CD007F1786 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D4C04341C4CE7CD007F1786 /* NSData+Base64.h */; settings = {ASSET_TAGS = (); }; };
+		4D4C04371C4CE7CD007F1786 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C04351C4CE7CD007F1786 /* NSData+Base64.m */; settings = {ASSET_TAGS = (); }; };
+		4D4C043A1C4CE902007F1786 /* GGBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D4C04381C4CE902007F1786 /* GGBase64.h */; settings = {ASSET_TAGS = (); }; };
+		4D4C043B1C4CE902007F1786 /* GGBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C04391C4CE902007F1786 /* GGBase64.m */; settings = {ASSET_TAGS = (); }; };
+		4D4C043C1C4CEE08007F1786 /* GGAuthentication.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D4C04261C4CDCC9007F1786 /* GGAuthentication.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D4C043D1C4CEEAA007F1786 /* GGAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C04271C4CDCC9007F1786 /* GGAuthentication.m */; settings = {ASSET_TAGS = (); }; };
+		4D4C04501C4D3EC1007F1786 /* GGDateConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4D4C044E1C4D3EC1007F1786 /* GGDateConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4D4C04511C4D3EC1007F1786 /* GGDateConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4C044F1C4D3EC1007F1786 /* GGDateConverter.m */; settings = {ASSET_TAGS = (); }; };
 		517D5995E83B3A764EB88EE76CA378FF /* GGWs.m in Sources */ = {isa = PBXBuildFile; fileRef = 87E283E9F53C3B66EED783FE918B10D4 /* GGWs.m */; };
 		51DDDB0FB4899757CF6A826B531B940D /* EXPUnsupportedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 8BE369528DB94DD9FD6880DCFAAAAB69 /* EXPUnsupportedObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5449837C448B7B91003320744B26D718 /* GGJsonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 63B2E0F8EDF07A1C1B9000289A176400 /* GGJsonHelper.m */; };
@@ -236,6 +248,18 @@
 		3F32E405A85135EDBCBF4765A6BB530B /* EXPExpect.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXPExpect.m; path = Expecta/EXPExpect.m; sourceTree = "<group>"; };
 		408EA78FA928332DAE21B1527BCC7A2F /* EXPMatchers+beTruthy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+beTruthy.m"; path = "Expecta/Matchers/EXPMatchers+beTruthy.m"; sourceTree = "<group>"; };
 		42EC02837F7465B7AED8E1A256D57C91 /* EXPMatchers+beLessThan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "EXPMatchers+beLessThan.h"; path = "Expecta/Matchers/EXPMatchers+beLessThan.h"; sourceTree = "<group>"; };
+		4D4C04261C4CDCC9007F1786 /* GGAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GGAuthentication.h; path = ../GGAuthentication.h; sourceTree = "<group>"; };
+		4D4C04271C4CDCC9007F1786 /* GGAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GGAuthentication.m; path = ../GGAuthentication.m; sourceTree = "<group>"; };
+		4D4C042B1C4CE119007F1786 /* GGHttpBasicAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGHttpBasicAuth.h; sourceTree = "<group>"; };
+		4D4C042C1C4CE119007F1786 /* GGHttpBasicAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGHttpBasicAuth.m; sourceTree = "<group>"; };
+		4D4C04301C4CE7BE007F1786 /* GGSha1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGSha1.h; sourceTree = "<group>"; };
+		4D4C04311C4CE7BE007F1786 /* GGSha1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGSha1.m; sourceTree = "<group>"; };
+		4D4C04341C4CE7CD007F1786 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		4D4C04351C4CE7CD007F1786 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		4D4C04381C4CE902007F1786 /* GGBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGBase64.h; sourceTree = "<group>"; };
+		4D4C04391C4CE902007F1786 /* GGBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGBase64.m; sourceTree = "<group>"; };
+		4D4C044E1C4D3EC1007F1786 /* GGDateConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGDateConverter.h; sourceTree = "<group>"; };
+		4D4C044F1C4D3EC1007F1786 /* GGDateConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GGDateConverter.m; sourceTree = "<group>"; };
 		4F67D8E8E16F0E77A2D4E5F714CEBC41 /* EXPBlockDefinedMatcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = EXPBlockDefinedMatcher.m; path = Expecta/EXPBlockDefinedMatcher.m; sourceTree = "<group>"; };
 		51F770E0A0B3B0D2789D92A52AD3ABAE /* EXPMatchers+conformTo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "EXPMatchers+conformTo.m"; path = "Expecta/Matchers/EXPMatchers+conformTo.m"; sourceTree = "<group>"; };
 		51F8C648CB722FE51238487FAECC1517 /* SpectaTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SpectaTypes.h; path = Specta/Specta/SpectaTypes.h; sourceTree = "<group>"; };
@@ -511,8 +535,10 @@
 				DCDF52E966FB2BE9C5FB2C3774E782DE /* GGHeaders.m */,
 				C1DD6C50232317E0AF2ECF722567FD26 /* GGWs.h */,
 				87E283E9F53C3B66EED783FE918B10D4 /* GGWs.m */,
+				4D4C042A1C4CE0BB007F1786 /* Auth */,
 				13371D80CCC15A7DDD48A7829D90CBF9 /* CTObjectiveCRuntimeAdditions */,
 				11FEB6696219CC19395791991BBEF86D /* HTTPCLientWraper */,
+				4D4C042F1C4CE769007F1786 /* Util */,
 				A01B16D9EC26E023306663CF73F1E7F2 /* JsonHelper */,
 			);
 			path = Classes;
@@ -524,6 +550,30 @@
 				0C6B012983F9FEF8CC65C1318F5F090C /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4D4C042A1C4CE0BB007F1786 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				4D4C04261C4CDCC9007F1786 /* GGAuthentication.h */,
+				4D4C04271C4CDCC9007F1786 /* GGAuthentication.m */,
+				4D4C042B1C4CE119007F1786 /* GGHttpBasicAuth.h */,
+				4D4C042C1C4CE119007F1786 /* GGHttpBasicAuth.m */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		4D4C042F1C4CE769007F1786 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				4D4C04341C4CE7CD007F1786 /* NSData+Base64.h */,
+				4D4C04351C4CE7CD007F1786 /* NSData+Base64.m */,
+				4D4C04301C4CE7BE007F1786 /* GGSha1.h */,
+				4D4C04311C4CE7BE007F1786 /* GGSha1.m */,
+				4D4C04381C4CE902007F1786 /* GGBase64.h */,
+				4D4C04391C4CE902007F1786 /* GGBase64.m */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		4DA3602D7F8FAD5F91C232D4D61D417D /* Support Files */ = {
@@ -717,6 +767,8 @@
 				5BEB43413C27489F9E89DB72FD40E006 /* NSMutableDictionary+GGJson.m */,
 				12BB72DB56BD1EA31E7176CC5339556B /* NSObject+Json.h */,
 				EE710CF95360245678F06892C387CBB4 /* NSObject+Json.m */,
+				4D4C044E1C4D3EC1007F1786 /* GGDateConverter.h */,
+				4D4C044F1C4D3EC1007F1786 /* GGDateConverter.m */,
 			);
 			path = JsonHelper;
 			sourceTree = "<group>";
@@ -854,21 +906,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				11FDF450D14640517C76DF10CF8EE0A6 /* CTBlockDescription.h in Headers */,
+				4D4C042D1C4CE119007F1786 /* GGHttpBasicAuth.h in Headers */,
 				E7935B5BC5E78F1D0DA78E48D8F0039C /* CTObjectiveCRuntimeAdditions.h in Headers */,
 				1A861BAB7D20B5E6EBC61009C09B18FF /* GGHeaders.h in Headers */,
+				4D4C04321C4CE7BE007F1786 /* GGSha1.h in Headers */,
 				F4703F256C276856AF3181C18723CD9E /* GGHttpClientImpl.h in Headers */,
 				C3A90137F54E4615A6BE5A7998A3D14E /* GGHttpClientWraper.h in Headers */,
 				03A641CEE6493A26EF86047CB532B7E5 /* GGHttpResponse.h in Headers */,
 				4745B7476AD392681F0763759A50082A /* GGJsoneableArray.h in Headers */,
 				F1DB565E8A422404E0ECB11B0ABB2711 /* GGJsoneableObject.h in Headers */,
 				DF3D387B82DB186B6D478EA620557EF9 /* GGJsoneableString.h in Headers */,
+				4D4C04501C4D3EC1007F1786 /* GGDateConverter.h in Headers */,
+				4D4C043C1C4CEE08007F1786 /* GGAuthentication.h in Headers */,
 				962786C23B95BB07A7BF74FE2914D654 /* GGJsonHelper.h in Headers */,
+				4D4C04361C4CE7CD007F1786 /* NSData+Base64.h in Headers */,
 				63580A6AA8F6945A83C058CC59ACC340 /* GGMockedClient.h in Headers */,
 				060BD73A31B1292DF20D31A73F0E6866 /* GGRest-umbrella.h in Headers */,
 				87BAB9E74DE3145739FFA378BC0E546C /* GGWs.h in Headers */,
 				15A6DB1AF778AFC4455CD4B423B9914D /* NSDictionary+GGJson.h in Headers */,
 				981C993B55C4C80F8637EAAAB547835F /* NSMutableDictionary+GGJson.h in Headers */,
 				3841F74C71C44829A520BC57364A4A56 /* NSObject+Json.h in Headers */,
+				4D4C043A1C4CE902007F1786 /* GGBase64.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1071,10 +1129,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				477C5D1D0725B19D5D405F2FE30467BA /* CTBlockDescription.m in Sources */,
+				4D4C043B1C4CE902007F1786 /* GGBase64.m in Sources */,
+				4D4C04371C4CE7CD007F1786 /* NSData+Base64.m in Sources */,
 				85D08B58610B57EAA09D021A0642E6CC /* CTObjectiveCRuntimeAdditions-Prefix.pch in Sources */,
 				8ACB987078560184D58D03204A72940C /* CTObjectiveCRuntimeAdditions.m in Sources */,
 				CC8CB61C8526FA34CF36E62FE3527DA6 /* GGHeaders.m in Sources */,
 				D8262A18ADFAB73BF06037442BEDDC22 /* GGHttpClientImpl.m in Sources */,
+				4D4C043D1C4CEEAA007F1786 /* GGAuthentication.m in Sources */,
 				61ADDA84ABDE74622FD898A833382167 /* GGHttpResponse.m in Sources */,
 				8306B196B4DD1BFED06B1B23DCFC905B /* GGJsoneableArray.m in Sources */,
 				C7E7BAFAE09BB015187558B582B6D03E /* GGJsoneableString.m in Sources */,
@@ -1084,7 +1145,10 @@
 				517D5995E83B3A764EB88EE76CA378FF /* GGWs.m in Sources */,
 				5B88AA80DAF8A48BA64B0E5A10D26864 /* NSDictionary+GGJson.m in Sources */,
 				CFC96C60B2F3A4A8D4AC78243CFA4D2F /* NSMutableDictionary+GGJson.m in Sources */,
+				4D4C042E1C4CE119007F1786 /* GGHttpBasicAuth.m in Sources */,
+				4D4C04331C4CE7BE007F1786 /* GGSha1.m in Sources */,
 				692402E3AC375398E0776BD12BECC809 /* NSObject+Json.m in Sources */,
+				4D4C04511C4D3EC1007F1786 /* GGDateConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

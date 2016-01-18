@@ -5,6 +5,7 @@
 #import "NSObject+Json.h"
 #import "NSDictionary+GGJson.h"
 #import "NSMutableDictionary+GGJson.h"
+#import "GGDateConverter.h"
 
 @interface GGJsonHelper : NSObject
 
@@ -12,6 +13,8 @@
 +(NSDictionary *) JsonStringToDic:(NSString *) jsonString;
 +(NSArray*) JsonStringArrayToArray:(NSString *) jsonArrayString;
 
-
++(void) addDateConverter:(GGDateConverter*) dateConverter;
++(NSDate*) parseDateWithConverters:(NSString *) dateString;
++(NSString *) formatDateWithConverters:(NSDate *) d;
 
 @end

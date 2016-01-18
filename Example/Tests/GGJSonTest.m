@@ -65,7 +65,6 @@
     for(GGTestObject *o in a){
         [self validateObject:o];
     }
-    
 }
 
 -(void) testDeserialization{

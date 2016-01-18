@@ -14,6 +14,5 @@
 -(void) setJsoneableObject:(id<GGJsoneableObject>) obj forKey:(NSString*) key;
 -(void) setObjectArray:(NSArray*) v forKey:(NSString*) key withWiews:(NSArray*)views;
 -(void) setJsoneableObject:(id<GGJsoneableObject>) obj forKey:(NSString*) key withWiews:(NSArray*)views;
-+(instancetype) create;
 
 @end

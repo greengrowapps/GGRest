@@ -8,7 +8,10 @@
 
 #import "GGJsonHelper.h"
 
+static NSMutableArray *dateConverters;
+
 @implementation GGJsonHelper
+
 
 +(NSString *) JsonDicToString:(NSDictionary *)jsonDic{
     if (jsonDic == nil)
@@ -29,11 +32,6 @@
     
     return jsonString;
 }
-
-
-
-
-
 
 
 +(NSDictionary *) JsonStringToDic:(NSString *) jsonString{
@@ -72,6 +70,53 @@
     }
     return jsonArray;
 }
+
++(void) addDateConverter:(GGDateConverter*) dateConverter{
+    if(!dateConverter){ return;}
+    NSMutableArray *converters= [self getDateConverters];
+    
+    [converters insertObject:dateConverter atIndex:0];
+    
+}
+
++(NSMutableArray *) getDateConverters{
+    if(!dateConverters){
+        dateConverters=[[NSMutableArray alloc] init];
+        [dateConverters addObject:[[GGDateConverter alloc] initWithFormat:@"dd-MM-yyyy HH:mm:ss"]];
+        [dateConverters addObject:[[GGDateConverter alloc] initWithFormat:@"dd/MM/yyyy HH:mm:ss"]];
+        [dateConverters addObject:[[GGDateConverter alloc] initWithFormat:@"dd/MM/yyyy"]];
+        [dateConverters addObject:[[GGDateConverter alloc] initWithFormat:@"dd-MM-yyyy"]];
+    }
+    
+
+
+    
+    return dateConverters;
+}
+
++(NSDate*) parseDateWithConverters:(NSString *) dateString{
+    
+    for(GGDateConverter *dc in [self getDateConverters]){
+        NSDate *d = [dc fromString:dateString];
+        if(d){
+            return d;
+        }
+    }
+    
+    return nil;
+    
+}
++(NSString *) formatDateWithConverters:(NSDate *) d{
+    for(GGDateConverter *dc in [self getDateConverters]){
+        NSString *s = [dc toString:d];
+        if(s){
+            return s;
+        }
+    }
+    
+    return nil;
+}
+
 
 
 

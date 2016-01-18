@@ -53,6 +53,11 @@
     if(body){
         [self addBodyData:body toRequest:request];
     }
+    
+    
+    [h printHeadersInRequest:request];
+    
+
 
     
     
