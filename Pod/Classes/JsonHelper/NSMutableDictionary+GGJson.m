@@ -17,6 +17,7 @@
 }
 
 -(void) setDate:(NSDate*)d forKey:(NSString*)key{
+    if(!d){return;}
    // [self setObject:[NSNumber numberWithLong:d.timeIntervalSince1970*1000] forKey:key];
     [self setObject:[GGJsonHelper formatDateWithConverters:d] forKey:key];
 }
@@ -26,10 +27,12 @@
 
 
 -(void) setObjectArray:(NSArray*) v forKey:(NSString*) key{
+    if(!v){return;}
     [self setObjectArray:v forKey:key withWiews:nil];
 }
 
 -(void) setJsoneableObject:(id<GGJsoneableObject>) obj forKey:(NSString*) key{
+    if(!obj){return;}
     [self setJsoneableObject:obj forKey:key withWiews:nil];
 }
 
