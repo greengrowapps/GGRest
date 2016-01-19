@@ -16,9 +16,13 @@
     [self setObject:[NSNumber numberWithFloat:v] forKey:key];
 }
 
+-(void) setDateInTimestampFormat:(NSDate*) d forKey:(NSString *) key{
+    if(!d){return;}
+    [self setObject:[NSNumber numberWithLongLong:d.timeIntervalSince1970*1000] forKey:key];
+}
+
 -(void) setDate:(NSDate*)d forKey:(NSString*)key{
     if(!d){return;}
-   // [self setObject:[NSNumber numberWithLong:d.timeIntervalSince1970*1000] forKey:key];
     [self setObject:[GGJsonHelper formatDateWithConverters:d] forKey:key];
 }
 -(void) setBoolean:(BOOL)d forKey:(NSString*)key{

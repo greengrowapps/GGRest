@@ -29,6 +29,30 @@
     [super tearDown];
 }
 
+-(NSDate*) getDateFromTimestamp:(long long) timestamp{
+    return [NSDate dateWithTimeIntervalSince1970:timestamp/1000];
+}
+
+-(NSDate*) getDateWithYear:(int) year month:(int) month day:(int) day hour:(int)hour minutes:(int)minutes seconds:(int)seconds{
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    // Combine date and time into components3
+    NSDateComponents *components3 = [[NSDateComponents alloc] init];
+    
+    [components3 setYear:year];
+    [components3 setMonth:month];
+    [components3 setDay:day];
+    
+    [components3 setHour:hour];
+    [components3 setMinute:minutes];
+    [components3 setSecond:seconds];
+    
+    // Generate a new NSDate from components3.
+    NSDate *date = [gregorianCalendar dateFromComponents:components3];
+    
+    return date;
+}
+
 -(void) testSingleObjectSerialization{
     GGTestObject *o= [GGTestObject fromJsonString:objectJson];
     [self validateObject:o];
@@ -39,9 +63,20 @@
     XCTAssertEqual(obj.intField, 12);
     XCTAssertEqualWithAccuracy(obj.floatField, 12.4, 0.01);
     XCTAssertEqualObjects(obj.stringField, @"hello");
-   //TODO validate dates
-    
     XCTAssertEqual(obj.booleanField, true);
+
+    
+    NSDate *fullDate=[self getDateWithYear:1987 month:5 day:7 hour:07 minutes:13 seconds:15];
+    XCTAssertEqualObjects(obj.dateTimeField, fullDate);
+    
+    
+    NSDate *dateWithouttime=[self getDateWithYear:1987 month:5 day:7 hour:0 minutes:0 seconds:0];
+    XCTAssertEqualObjects(obj.dateField, dateWithouttime);
+    
+    
+    NSDate *fromTimestamp=[self getDateFromTimestamp:547387994000];
+    XCTAssertEqualObjects(obj.dateFromTimestampField, fromTimestamp);
+
     
     [self validateObjectChild:obj.child];
     

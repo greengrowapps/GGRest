@@ -14,6 +14,7 @@
 #define jskStringValue @"stringValue"
 #define jskDateValue @"dateValue"
 #define jskDateTimeValue @"dateTimeValue"
+#define jskDateFromTimestampValue @"dateFromTimestampValue"
 #define jskBooleanValue @"booleanValue"
 #define jskchild @"child"
 #define jskchildArray @"childArray"
@@ -32,6 +33,7 @@
     [ret setString:self.stringField forKey:jskStringValue];
     [ret setDate:self.dateField forKey:jskDateValue];
     [ret setDate:self.dateTimeField forKey:jskDateTimeValue];
+    [ret setDateInTimestampFormat:self.dateFromTimestampField forKey:jskDateFromTimestampValue];
     [ret setBoolean:self.booleanField forKey:jskBooleanValue];
     [ret setJsoneableObject:self.child forKey:jskchild withWiews:views];
     [ret setObjectArray:self.childArray forKey:jskchildArray withWiews:views];
@@ -45,6 +47,7 @@
         self.stringField=[json getStringForKey:jskStringValue];
         self.dateField=[json getDateForKey:jskDateValue];
         self.dateTimeField=[json getDateForKey:jskDateTimeValue];
+        self.dateFromTimestampField=[json getDateForKey:jskDateFromTimestampValue];
         self.booleanField=[json getBooleanForKey:jskBooleanValue];
         self.child=[json getObjectForKey:jskchild ofType:[GGTestObject class]];
         self.childArray=[json getObjectArrayForKey:jskchildArray ofType:[GGTestObject class]];
