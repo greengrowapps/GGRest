@@ -14,7 +14,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 This example gets the content of the url using basic http auth and deserializes the content as an object:
 
-```objective-c.
+```objective-c
 
     GGWs *ws=[[GGWs alloc] init];
     ws.url=@"https://api.github.com/repos/greengrowapps/GGRest/commits";
