@@ -72,6 +72,9 @@
     [self checkIntegrity];
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     callbackQueue = [NSOperationQueue currentQueue];
+    if(!callbackQueue){
+        callbackQueue = [NSOperationQueue mainQueue];
+    }
     
     
     [self.authentication processHeaders:self.headers];
